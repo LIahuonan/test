@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <title>海洋牧场监测可视化系统</title>
+</head>
+
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" onsubmit="validateLogin(event)">
+                    <h2>用户登录</h2>
+                    <div class="choice">
+                        <a href="adminlogin.html">我是管理员</a>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="username" id="username" required>
+                        <label for="username">账号</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="password" required>
+                        <label for="password">密码</label>
+                    </div>
+                    <div id="code_wrapper">
+                        <input id="code_input1" />
+                        <div id="code1" style="width: 100px"></div>
+
+                    </div>
+                    <div class="forget">
+                        <label for=""><input type="checkbox" />记住密码</label>
+                        <a href=""><input type="checkbox" />忘记密码</a>
+                    </div>
+                    <button type="submit" id="code_btn1"></a>登录</button>
+                    <div class="register">
+                        <p>没有账号？<a href="signup.html">点击注册</a> </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var yanzhengma1 = localStorage.getItem("useryanzhengma") === "true";
+            if (yanzhengma1) {
+                if (username === "user" && password === "user") {
+                    localStorage.setItem("isLoggedIn", true);
+                    window.location.replace("index.html");
+                } else {
+                    alert("用户名或密码不正确，请再次尝试！");
+                }
+            }
+            else {
+                alert("验证码错误！")
+            }
+
+        }
+    </script>
+    <script src="css/validate_code.js"></script>
+</body>
+
+</html>

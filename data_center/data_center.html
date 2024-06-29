@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>数据中心</title>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <link rel="stylesheet" href="css/comon0.css">
+</head>
+
+<body>
+  <div class="loading">
+    <div class="loadbox"> <img src="images/loading.gif"> 页面加载中... </div>
+  </div>
+  <div class="head clearfix">
+
+    <h1 class="pulll_left">海洋牧场监测可视化系统</h1>
+    <div class="menu menu2 pulll_left">
+      <ul>
+        <li><a href="../index.html">主要信息</a></li>
+        <li><a href="../subsea_system.html">水下系统</a></li>
+        <li><a href="data_center.html">数据中心</a></li>
+        <li><a href="../intelligent_center/intelligent_center.html">智能中心</a></li>
+        <!-- <li><a href="../userlogin.html">切换账户</a></li> -->
+      </ul>
+    </div>
+
+    <div class="time" id="showTime">2018/6/12 17:00:12</div>
+    <script>
+      var t = null;
+      t = setTimeout(time, 1000);//開始运行
+      function time() {
+        clearTimeout(t);//清除定时器
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours();//获取时
+        var m = dt.getMinutes();//获取分
+        var s = dt.getSeconds();//获取秒
+        var t = null;
+        document.getElementById("showTime").innerHTML = y + "/" + Appendzero(mt) + "/" + Appendzero(day) + " " + Appendzero(h) + ":" + Appendzero(m) + ":" + Appendzero(s) + "";
+        function Appendzero(obj) {
+          if (obj < 10) return "0" + "" + obj;
+          else return obj;
+        }
+        t = setTimeout(time, 1000); //设定定时器，循环运行     
+      }
+
+    </script>
+
+  </div>
+  <div class="mainbox">
+    <ul class="clearfix">
+      <li>
+
+        <div class="boxall" style="height: calc(58% - .15rem)">
+          <div class="alltitle">硬件信息统计</div>
+          <div class=" boxnav " id="echarts4">
+          </div>
+        </div>
+        <div class="boxall" style="height: calc(42% - .15rem)">
+          <div class="alltitle">数据类型统计</div>
+          <div class="boxnav" id="echarts3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="boxall" style="height: calc(20% - .15rem)">
+          <ul class="row h100 clearfix">
+            <li class="col-6">
+              <div class="sqzs h100" style="position: relative;">
+                <p>数据总量</p>
+                <h1><span>12138</span></h1>
+                <p style="position: absolute; bottom: 0; right: 0; font-size: 2em;">单位：T</p>
+              </div>
+            </li>
+            <li class="col-6">
+              <ul class="row h100 clearfix">
+                <li class="col-4">
+                  <div class="tit01">已处理</div>
+                  <div class="piebox" id="pe01"></div>
+                </li>
+                <li class="col-4">
+                  <div class="tit01">待处理</div>
+                  <div class="piebox" id="pe02"></div>
+                </li>
+                <li class="col-4">
+                  <div class="tit01">错误数据</div>
+                  <div class="piebox" id="pe03"></div>
+                </li>
+              </ul>
+
+            </li>
+          </ul>
+        </div>
+        <div class="boxall" style="height: calc(38% - .15rem)">
+          <input type="file" id="fileInput" style="display: none;">
+          <button id="chooseFileButton">选择文件</button>
+          <div class="alltitle">水质数据</div>
+          <div class="boxnav" id="echarts1"></div>
+        </div>
+        <div class="boxall" style="height: calc(42% - .15rem)">
+          <div class="alltitle">近期月数据变化</div>
+          <div class="boxnav" id="echarts2"></div>
+        </div>
+
+      </li>
+      <li>
+
+
+        <div class="boxall" style="height: calc(65% - .15rem)">
+          <input type="file" id="fileInput2" style="display: none;">
+          <button id="chooseFileButton2">选择文件</button>
+          <div class="alltitle">鱼类数据</div>
+          <div class="boxnav" style="overflow-y:scroll;" id="">
+            <table border="0" cellspacing="0" id="boxnavTable"></table>
+          </div>
+
+        </div>
+        <div class="boxall" style="height: calc(35% - .15rem)">
+          <div class="alltitle">数据类型占比</div>
+          <div class="boxnav" id="echarts6" style="height:calc(100% - .3rem);"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="js/echarts.min.js"></script>
+  <!-- 导入 xlsx 库 -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script language="JavaScript" src="js/js.js"></script>
+</body>
+
+</html>

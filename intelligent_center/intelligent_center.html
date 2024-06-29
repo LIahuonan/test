@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>智能中心</title>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/comon0.css">
+<style>
+
+
+.grid {
+margin-top:5%;
+width:80%;
+  height: 10px;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-column-gap: 14px;
+}
+
+.line {
+  position: relative;
+  width: 90%;
+  height: 7px;
+}
+.line::before, .line::after {
+  content: '';
+  position: absolute;
+  width: 4.5rem;
+  height: 100%;
+  border-radius: 7px;
+  background-color: #FF0000;
+}
+.line::before {
+  animation: first-line ease-in-out 4s var(--delay) infinite alternate;
+}
+.line::after {
+  bottom: 0;
+  background-color: #B22222;
+  width: calc(80% - 10px);
+  animation: second-line ease-in-out 4s var(--delay) infinite alternate;
+}
+.line:nth-child(1) {
+  --delay: calc(-0.1s);
+}
+
+
+@keyframes first-line {
+  70% {
+    width: calc(80% - 10px);
+  }
+  100% {
+    background-color: #FF0000;
+  }
+}
+
+</style>
+</head>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var html=$(".wrap ul").html()
+		$(".wrap ul").append(html)
+		var ls=$(".wrap li").length/2+1
+		i=0
+		ref = setInterval(function(){
+			i++
+			if(i==ls){
+				i=1
+				$(".wrap ul").css({marginTop:0})
+				$(".wrap ul").animate({marginTop:-'.52'*i+'rem'},1000)
+			}
+	    	$(".wrap ul").animate({marginTop:-'.52'*i+'rem'},1000)
+
+
+		},2400);
+				var html2=$(".adduser ul").html()
+		$(".adduser ul").append(html2)
+		var ls2=$(".adduser li").length/2+1
+		a=0
+		ref = setInterval(function(){
+			a++
+			if(a==ls2){
+				a=1
+				$(".adduser ul").css({marginTop:0})
+				$(".adduser ul").animate({marginTop:-'.5'*a+'rem'},800)
+			}
+	    	$(".adduser ul").animate({marginTop:-'.5'*a+'rem'},800)
+
+
+		},4300);
+	})
+</script>
+<body style='overflow:-Scroll;overflow-y:scroll'>
+    <div class="loading">
+        <div class="loadbox"> <img src="images/loading.gif"> 页面加载中... </div>
+    </div>
+    <div class="head clearfix">
+
+
+        <h1 class="pulll_left">海洋牧场监测可视化系统</h1>
+            <div class="menu menu2 pulll_left">
+            <ul>      
+                <li><a href="../index.html">主要信息</a></li>
+                <li><a href="../subsea_system.html">水下系统</a></li>
+                <li><a href="../data_center/data_center.html">数据中心</a></li>
+                <li><a href="intelligent_center.html">智能中心</a></li>
+                <!-- <li><a href="../userlogin.html">切换账户</a></li> -->
+            </ul>
+            </div>
+            
+            <div class="time" id="showTime">2018/6/12 17:00:12</div>
+
+		<script>
+            var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+            }
+
+        </script>
+    </div>
+    <div class="mainbox">
+        <ul class="clearfix">
+            <li>
+                <div class="boxall" style="height: 5.2rem">
+                    <div class="alltitle">实时数据</div>
+
+                    <div class="sycm">
+                        <ul class="clearfix">
+                            <li><h2>1824</h2><span>编号</span></li>
+                            <li><h2>1920</h2><span>鱼种</span></li>
+                            <li><h2>##</h2><span>轨迹追踪</span></li>
+                        </ul>
+                        <div style="border-bottom: 1px solid rgba(255,255,255,.1)"></div>
+                        <ul class="clearfix">
+                            <li><h2>10寸</h2><span>体长</span></li>
+                            <li><h2>10kg</h2><span>体重</span></li>
+                            <li><h2>##</h2><span>轨迹分析</span></li>
+                        </ul>
+
+
+                    </div>
+					 <div class="addnew" >
+                        <div class="tit02"><span>预警信息</span></div>
+						<div class="adduser"  style="height: 2.0rem">
+						    <ul >
+						        <li class="clearfix"> <span class="pulll_left">A</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						        <li class="clearfix"> <span class="pulll_left">B</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						        <li class="clearfix"> <span class="pulll_left">C</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						        <li class="clearfix"> <span class="pulll_left">D</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+								<li class="clearfix"> <span class="pulll_left">E</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+								<li class="clearfix"> <span class="pulll_left">F</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						    </ul>
+						</div>
+                        <!-- <div class="allnav" style="height: 2.2rem" id="wbzl"></div> -->
+                    </div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 4.9rem">
+					<div class="alltitle">气象信息</div>
+					<div class="sycmm">
+					    <ul class="clearfix">
+					        <li><h2>🌡️25℃</h2><span>温度</span></li>
+					        <li><h2>💧50%</h2><span>湿度</span></li>
+					    </ul>
+					    <div style="border-bottom: 1px solid rgba(255,255,255,.1)"></div>
+					    <ul class="clearfix">
+					        <li><h2>💨3级</h2><span>风力</span></li>
+					        <li><h2>🌬️良好</h2><span>空气质量</span></li>
+					    </ul>
+					
+					
+					</div>
+                    
+			 	    <div class="addnew" >
+                        <div class="tit02"><span>预警信息</span></div>
+						<div class="adduser"  style="height: 1.5rem">
+						    <ul >
+						        <li class="clearfix"> <span class="pulll_left">A</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						        <li class="clearfix"> <span class="pulll_left">B</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						        <li class="clearfix"> <span class="pulll_left">C</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						        <li class="clearfix"> <span class="pulll_left">D</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+								<li class="clearfix"> <span class="pulll_left">E</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+								<li class="clearfix"> <span class="pulll_left">F</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+						    </ul>
+						</div>
+                        <!-- <div class="allnav" style="height: 2.0rem" id="wwbzl"></div> -->
+                    </div>
+                    <div class="boxfoot"></div>
+                </div>
+            </li>
+            <li>
+                <div class="bar">
+                    <div class="barbox ">
+                        <ul class="clearfix">
+                            <li  class="pulll_left counter">
+								6069
+							</li>
+                            <li class="pulll_left counter">410</li>
+                        </ul>
+                    </div>
+                    <div class="barbox2">
+                        <ul class="clearfix">
+                            <li class="pulll_left">联网单位数量</li>
+                            <li class="pulll_left">联网传感器数量</li>
+                        </ul>
+                    </div>
+                </div>
+				<div class="bar">
+                    <div class="barbox">
+                        <ul class="clearfix">
+                            <li class="pulll_left counter">81189</li>
+                            <li class="pulll_left counter">39410</li>
+                        </ul>
+                    </div>
+                    <div class="barbox2">
+                        <ul class="clearfix">
+                            <li class="pulll_left">总点位数量</li>
+                            <li class="pulll_left">总报警数量</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="map">
+                    <div class="map1"><img src="images/lbx.png"></div>
+                    <div class="map2"><img src="images/jt.png"></div>
+                    <div class="map3"><img src="images/map.png"></div>
+                    <div class="map4" id="map_1"></div>
+                </div>
+				 <div class="boxall" style="height: 3.4rem">
+                    <div class="alltitle">得分计算</div>
+                    <div  class="allnav" id="dbj" style="width:7.2rem;height:3.6rem;margin-top: 0.3rem"></div>
+                    <div class="boxfoot"></div>
+                </div>
+            </li>
+            <li>
+                <div class="boxall" style="height:5.2rem">
+                    <div class="alltitle">网衣/鱼群检测</div>
+                    
+                    <div class="clearfix">
+                        <div class="sy" style="width:300px;" id="yqbj"></div>
+                    </div>
+                    <div class="addnew" >
+                        <div class="tit02"><span>最新报警</span></div>
+                        <div class="adduser"  style="height: 2.0rem">
+                            <ul >
+                                <li class="clearfix"> <span class="pulll_left">A</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+                                <li class="clearfix"> <span class="pulll_left">B</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+                                <li class="clearfix"> <span class="pulll_left">C</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+                                <li class="clearfix"> <span class="pulll_left">D</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+								<li class="clearfix"> <span class="pulll_left">E</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+								<li class="clearfix"> <span class="pulll_left">F</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 2.4rem">
+                    <div class="alltitle">AI决策</div>
+						
+                    <div class="boxfoot"></div>
+                </div>
+				<div class="boxall" style="height: 2.4rem">
+                    <div class="alltitle">提示</div>
+					<div class="adduser"  style="height: 1.5rem">
+					    <ul >
+					        <li class="clearfix"> <span class="pulll_left">A</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+					        <li class="clearfix"> <span class="pulll_left">B</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+					        <li class="clearfix"> <span class="pulll_left">C</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+					        <li class="clearfix"> <span class="pulll_left">D</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+							<li class="clearfix"> <span class="pulll_left">E</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+							<li class="clearfix"> <span class="pulll_left">F</span> <span class="pulll_right">2019-10-11  09:58:58 </span> </li>
+					    </ul>
+					</div>
+					<!-- <div class="allnav" style="height: 3.0rem" id="sbj"></div> -->
+                   
+                    <div class="boxfoot"></div>
+                </div>
+            </li>
+        </ul>
+ 
+    </div>
+    <div class="back"></div>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+	 <script type="text/javascript" src="js/echarts-gl.min.js"></script>
+	    <script language="JavaScript" src="js/echarts-tool.js"></script>
+<script type="text/javascript" src="js/timelineOption.js"></script>
+
+  
+   
+    <script type="text/javascript">
+
+    </script>
+
+    <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/jquery.countup.min.js"></script>
+    <script type="text/javascript">
+        $('.counter').countUp();
+    </script>
+
+</body>
+</html>

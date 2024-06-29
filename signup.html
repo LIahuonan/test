@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signup.css">
+    <title>海洋牧场监测可视化系统</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" onsubmit="validateSignup(event)">
+                    <h2>注册账号</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="username" id="username" required> 
+                        <label for="username">请输入您的用户名</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="email" required> 
+                        <label for="email">请输入您的邮箱</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="password" required> 
+                        <label for="password">请输入您的密码</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="repassword" required> 
+                        <label for="repassword">请再次输入确认您的密码</label>
+                    </div>
+                    <button type="register">注册</button> 
+                    <div class="register">
+                        <p>已有账号？<a href="userlogin.html">点击登录</a> </p>
+                    </div>
+                    <footer>
+						<a href="userlogin.html">返 回</a>
+					</footer>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        function validateSignup(event) {
+          event.preventDefault();
+          
+          var password = document.getElementById("password").value;
+          var repassword = document.getElementById("repassword").value; 
+          if (password == repassword) {
+            localStorage.setItem("isSignedUp", true);
+            window.location.replace("userlogin.html");
+          } else {
+            alert("两次密码不一致，请再次尝试！");
+          }
+        }
+    </script>
+</body>
+</html>

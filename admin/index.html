@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>海洋牧场管理员后台界面</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 检查用户是否已登录
+            var isLoggedIn = localStorage.getItem("isLoggedIn1");
+            // 如果未登录，则重定向到登录页面
+            if (!isLoggedIn) {
+                window.location.replace("../adminlogin.html");
+            }
+        });
+    </script>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">后台管理</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+                    <li><a href="user_list.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+                    <li><a href="log.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;操作日志</a></li>
+                    <li><a href="fishery_data.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;渔场信息处理</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            admin
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li><a href="index.html"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;首页</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账户中心</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../adminlogin.html"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--警告框-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4>海洋牧场数据异常！</h4>
+                    <p>由于海上环境原因导致数据发生异常，请尽快处理！</p>
+                    <p>
+                        <button type="button" class="btn btn-danger">立即处理</button>
+                        <button type="button" class="btn btn-default" data-dismiss="alert">稍后处理</button>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">网站数据统计</div>
+                    <div class="panel-body">
+                        <div id="container1" style="height: 350%"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">网站表现</div>
+                    <div class="panel-body">
+                        <div id="container2" style="height: 350%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <form action="#">
+                    <div class="form-group">
+                        <label for="text1">输入留言内容</label>
+                        <textarea class="form-control" id="text1" rows="5" cols="10" placeholder="请输入留言内容"></textarea>
+                        <button type="submit" class="btn btn-default mar_t15" style="float: right;">留言</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <script type="text/javascript"
+        src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById('container1');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+        let category = [];
+        let dottedBase = +new Date();
+        let lineData = [];
+        let barData = [];
+        for (let i = 0; i < 20; i++) {
+            let date = new Date((dottedBase += 3600 * 24 * 1000));
+            category.push(
+                [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-')
+            );
+            let b = Math.random() * 200;
+            let d = Math.random() * 200;
+            barData.push(b);
+            lineData.push(d + b);
+        }
+        option = {
+            backgroundColor: '#0f375f',
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['访客数量', '注册数量'],
+                textStyle: {
+                    color: '#ccc'
+                }
+            },
+            xAxis: {
+                data: category,
+                axisLine: {
+                    lineStyle: {
+                        color: '#ccc'
+                    }
+                }
+            },
+            yAxis: {
+                splitLine: { show: false },
+                axisLine: {
+                    lineStyle: {
+                        color: '#ccc'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '访客数量',
+                    type: 'line',
+                    smooth: true,
+                    showAllSymbol: true,
+                    symbol: 'emptyCircle',
+                    symbolSize: 15,
+                    data: lineData
+                },
+                {
+                    name: '注册数量',
+                    type: 'bar',
+                    barWidth: 10,
+                    itemStyle: {
+                        borderRadius: 5,
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: '#14c8d4' },
+                            { offset: 1, color: '#43eec6' }
+                        ])
+                    },
+                    data: barData
+                },
+
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+    </script>
+
+
+    <script type="text/javascript">
+        var dom = document.getElementById('container2');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        option = {
+            color: ['#67F9D8', '#FFE434', '#56A3F1', '#FF917C'],
+            legend: {},
+            radar: [
+                {
+                    indicator: [
+                        { text: '用户体验' },
+                        { text: '网站性能' },
+                        { text: '内容质量' },
+                        { text: '市场表现' },
+                        { text: '安全性' }
+                    ],
+                    center: ['50%', '50%'],
+                    radius: 120,
+                    startAngle: 90,
+                    splitNumber: 4,
+                    shape: 'circle',
+                    axisName: {
+                        formatter: '【{value}】',
+                        color: '#428BD4'
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            color: ['#77EADF', '#26C3BE', '#64AFE9', '#428BD4'],
+                            shadowColor: 'rgba(0, 0, 0, 0.2)',
+                            shadowBlur: 10
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(211, 253, 250, 0.8)'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(211, 253, 250, 0.8)'
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    type: 'radar',
+                    emphasis: {
+                        lineStyle: {
+                            width: 4
+                        }
+                    },
+                    data: [
+                        {
+                            value: [80, 8, 0.4, -80, 2000],
+                            name: 'Data A'
+                        },
+                        {
+                            value: [90, 5, 0.5, 1000, 1500],
+                            name: 'Data B',
+                            areaStyle: {
+                                color: 'rgba(255, 228, 52, 0.6)'
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+    </script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

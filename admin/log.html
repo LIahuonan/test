@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>海洋牧场管理员后台界面</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">后台管理</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+                    <li><a href="user_list.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+                    <li class="active"><a href="log.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;操作日志</a></li>
+                    <li><a href="fishery_data.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;渔场信息处理</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            admin
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li><a href="index.html"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;首页</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账户中心</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../adminlogin.html"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <a href="log.html" class="list-group-item active">操作日志</a>
+                    <a href="log_search.html" class="list-group-item">查询日志</a>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>操作用户</th>
+                            <th>操作类型</th>
+                            <th>目标对象</th>
+                            <th>操作结果</th>
+                            <th>操作时间</th>
+                            <th>备注信息</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">GGBond</th>
+                            <td>修改</td>
+                            <td>报警阈值</td>
+                            <td>成功</td>
+                            <td>2024/04/01</td>
+                            <td>无</td>
+                            <td>
+                                <div role="presentation" class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"
+                                        role="button" aria-haspopup="true" aria-expanded="false">
+                                        管理<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">编辑</a></li>
+                                        <li><a href="#">删除</a></li>
+                                        <li><a href="#">查看</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">灭霸</th>
+                            <td>登录</td>
+                            <td>海洋牧场系统</td>
+                            <td>成功</td>
+                            <td>2024/04/11</td>
+                            <td>无</td>
+                            <td>
+                                <div role="presentation" class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"
+                                        role="button" aria-haspopup="true" aria-expanded="false">
+                                        管理<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">编辑</a></li>
+                                        <li><a href="#">删除</a></li>
+                                        <li><a href="#">查看</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">喜洋洋</th>
+                            <td>登录</td>
+                            <td>海洋牧场系统</td>
+                            <td>失败</td>
+                            <td>2024/04/11</td>
+                            <td>密码错误</td>
+                            <td>
+                                <div role="presentation" class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"
+                                        role="button" aria-haspopup="true" aria-expanded="false">
+                                        管理<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">编辑</a></li>
+                                        <li><a href="#">删除</a></li>
+                                        <li><a href="#">查看</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">IKUN</th>
+                            <td>登录</td>
+                            <td>海洋牧场系统</td>
+                            <td>成功</td>
+                            <td>2024/04/21</td>
+                            <td>唱跳rap篮球</td>
+                            <td>
+                                <div role="presentation" class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"
+                                        role="button" aria-haspopup="true" aria-expanded="false">
+                                        管理<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">编辑</a></li>
+                                        <li><a href="#">删除</a></li>
+                                        <li><a href="#">查看</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <nav class="pull-right">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#" aria-label="Previous"><span
+                                    aria-hidden="true">&laquo;</span></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2 </a></li>
+                        <li><a href="#">3 </a></li>
+                        <li><a href="#">4 </a></li>
+                        <li><a href="#">5 </a></li>
+                        <li><a href="#">6 </a></li>
+                        <li><a href="#"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
